@@ -4,8 +4,9 @@ from pygame.locals import *
 from time import sleep
 import paramiko
 ssh = paramiko.SSHClient()
-host = '192.168.86.61'
-UserName = 'pabsgaming'
+holderForSshFile = open('.gitignore/sshSTUFF', 'r').read().splitlines()
+host = holderForSshFile[0]
+UserName = holderForSshFile[1]
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(host, username=UserName)
 
